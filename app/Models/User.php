@@ -61,4 +61,8 @@ class User extends Authenticatable
     public function rentBoadings() {
         return $this->hasMany(BrandRentBoardings::class, "id_pemilik");
     }
+
+    public function sewaOrder() {
+        return $this->hasMany(SewaOrder::class, 'user_id');
+    }
 }

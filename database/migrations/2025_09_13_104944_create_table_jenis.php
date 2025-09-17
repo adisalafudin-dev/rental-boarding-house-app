@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("nama", 255);
             $table->text("ket", 255);
+            $table->foreignId("id_brand_kos")->constrained("brand_kost", "id");
             $table->timestamps();
         });
     }

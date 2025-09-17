@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('ukuran', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("id_brand_kos")->constrained("brand_kost", "id");
             $table->string("nama", 255)->unique();
             $table->decimal("panjang", 8, 2);
             $table->decimal("lebar", 8, 2);

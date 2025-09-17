@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BrandRentBoardings extends Model
 {
@@ -25,5 +26,17 @@ class BrandRentBoardings extends Model
 
     public function owners() {
         return $this->belongsTo(User::class, "id_pemilik");
+    }
+
+    public function typeRoom() {
+        return $this->hasMany(Jenis::class, "id_brand_kos");
+    }
+
+    public function sizeRoom() {
+        return $this->hasMany(Ukuran::class, "id_brand_kos");
+    }
+
+    public function cabangKos() : HasMany {
+        return $this->hasMany(Cabang::class, "id_kos");
     }
 }

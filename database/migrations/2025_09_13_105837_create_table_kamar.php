@@ -16,9 +16,8 @@ return new class extends Migration
             $table->foreignId("id_cabang")->constrained("cabang", "id")->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("id_ukuran")->constrained("ukuran", "id")->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("id_jenis")->constrained("jenis", "id")->onDelete("cascade")->onUpdate("cascade");
-            $table->integer("tarif_custom")->nullable();
             $table->text("keterangan")->nullable();
-            $table->enum("status_keaktifan", ["aktif", "tidak"]);
+            $table->enum("status_keaktifan", ["aktif", "tidak"])->default("aktif");
             $table->integer("pax")->nullable()->min(1)->default(1);
             $table->timestamps();
         });
